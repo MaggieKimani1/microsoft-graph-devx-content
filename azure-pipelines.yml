@@ -13,8 +13,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- powershell: gci env:* | sort-object name | Format-Table -AutoSize | Out-File $env:BUILD_ARTIFACTSTAGINGDIRECTORY/environment-variables.txt
-
+- powershell: gci env:* | sort-object name | Format-Table -AutoSize | Out-File $env:BUILD_ARTIFACTSTAGINGDIRECTORY/sample-query-files
 - task: PublishBuildArtifacts@1
   displayName: Publish to Azure Artifacts
   inputs:
