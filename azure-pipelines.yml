@@ -8,7 +8,6 @@ trigger:
     include: 
     - dev  
 
-
 pool:
   vmImage: 'ubuntu-latest'
 
@@ -28,8 +27,8 @@ steps:
      
 - task: AzureFileCopy@4
   inputs:
-    SourcePath: '$(build.artifactstagingdirectory)/staging/sample-queries'
+    SourcePath: '$(System.DefaultWorkingDirectory)/_MaggieKimani1.microsoft-graph-devx-content/drop/sample-queries'
     azureSubscription: 'GraphExplorer-API-ARM'
     Destination: 'AzureBlob'
     storage: 'devxapistorage'
-    ContainerName: 'staging-sample-queries'
+    ContainerName: 'sample'
