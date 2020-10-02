@@ -13,9 +13,23 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- powershell: gci env:* | sort-object name | Format-Table -AutoSize | Out-File $env:BUILD_ARTIFACTSTAGINGDIRECTORY/sample-query-files
-- task: PublishBuildArtifacts@1
-  displayName: Publish to Azure Artifacts
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
   inputs:
-    pathToPublish: '$(Build.ArtifactStagingDirectory)'
-    artifactName: devXContent
+    Contents: |
+      ./permissions
+      ./sample-queries
+    TargetFolder: '$(build.artifactstagingdirectory)'
+   
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
+  inputs:
+    PathtoPublish: '$(build.ArtifactStagingDirectory)'     
+     
+# - task: AzureFileCopy@4
+#   inputs:
+#     SourcePath: '$(build.artifactstagingdirectory)'
+#     azureSubscription: 'GraphExplorer-API-ARM'
+#     Destination: 'AzureBlob'
+#     storage: 'devxapistorage'
+#     ContainerName: 'staging-sample-queries'
