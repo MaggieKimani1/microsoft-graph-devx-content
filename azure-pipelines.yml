@@ -25,11 +25,11 @@ steps:
   inputs:
     PathtoPublish: '$(build.ArtifactStagingDirectory)'     
      
-- task: AzureFileCopy@4
-  displayName: 'Copy files to blob storage'
-  inputs:
-    SourcePath: '$(System.DefaultWorkingDirectory)/_MaggieKimani1.microsoft-graph-devx-content/drop/sample-queries'
-    azureSubscription: 'GraphExplorer-API-ARM'
-    Destination: 'AzureBlob'
-    storage: 'devxapistorage'
-    ContainerName: 'sample'
+# - task: AzureFileCopy@4
+#   displayName: 'Copy files to blob storage'
+#   inputs:
+#     SourcePath: '$(System.DefaultWorkingDirectory)/_MaggieKimani1.microsoft-graph-devx-content/drop/sample-queries'
+#     azureSubscription: 'GraphExplorer-API-ARM'
+#     Destination: 'AzureBlob'
+#     storage: 'devxapistorage'
+#     ContainerName: 'sample'
