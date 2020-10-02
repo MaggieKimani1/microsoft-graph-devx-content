@@ -26,10 +26,10 @@ steps:
   inputs:
     PathtoPublish: '$(build.ArtifactStagingDirectory)'     
      
-# - task: AzureFileCopy@4
-#   inputs:
-#     SourcePath: '$(build.artifactstagingdirectory)'
-#     azureSubscription: 'GraphExplorer-API-ARM'
-#     Destination: 'AzureBlob'
-#     storage: 'devxapistorage'
-#     ContainerName: 'staging-sample-queries'
+- task: AzureFileCopy@4
+  inputs:
+    SourcePath: '$(build.artifactstagingdirectory)/staging/sample-queries'
+    azureSubscription: 'GraphExplorer-API-ARM'
+    Destination: 'AzureBlob'
+    storage: 'devxapistorage'
+    ContainerName: 'staging-sample-queries'
