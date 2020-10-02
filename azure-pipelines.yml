@@ -16,9 +16,7 @@ steps:
 - task: CopyFiles@2
   displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
   inputs:
-    Contents: |
-      ./permissions
-      ./sample-queries
+    SourceFolder: '$(System.DefaultWorkingDirectory)/build'    
     TargetFolder: '$(build.artifactstagingdirectory)'
    
 - task: PublishBuildArtifacts@1
